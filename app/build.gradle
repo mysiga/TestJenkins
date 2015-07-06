@@ -1,0 +1,41 @@
+//申明是android应用程序
+apply plugin: 'com.android.application'
+
+android {
+    //编译SDK的版本
+    compileSdkVersion 22
+    //buidle tools的版本
+    buildToolsVersion "22.0.1"
+
+    defaultConfig {
+        //应用包名
+        applicationId "com.mysiga.myapplication"
+        minSdkVersion 15
+        targetSdkVersion 22
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+//    批量打包
+    productFlavors {
+        wandoujia {}
+        _360 {}
+        baidu {}
+        xiaomi {}
+        tencent {}
+        taobao {}
+    }
+    productFlavors.all {
+        flavor -> flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:appcompat-v7:22.2.0'
+}
