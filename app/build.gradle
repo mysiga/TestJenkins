@@ -15,10 +15,21 @@ android {
         versionCode 1
         versionName "1.0"
     }
+    //签名
+    signingConfigs {
+        release {
+            storeFile file('/Users/mingwu/Development/Android/51offer/资料/android开发密钥/offer.keystore')
+            storePassword '123456'
+            keyAlias '51offer'
+            keyPassword '123456'
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
     }
 //    批量打包
