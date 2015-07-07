@@ -42,7 +42,10 @@ android {
         taobao {}
     }
     productFlavors.all {
-        flavor -> flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
+        flavor -> flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name, LEANCLOUD_CHANNEL_VALUE: name]
+    }
+    lintOptions {
+        abortOnError false
     }
 }
 
