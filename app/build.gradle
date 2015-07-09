@@ -40,6 +40,7 @@ android {
         xiaomi {}
         tencent {}
         taobao {}
+        dev {}
     }
     productFlavors.all {
         flavor -> flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name, LEANCLOUD_CHANNEL_VALUE: name]
