@@ -2,6 +2,14 @@
 apply plugin: 'com.android.application'
 apply plugin: 'packer'
 
+
+packer {
+    // 指定是否使用build版本号自增
+    buildNumberAuto = true
+    // 指定使用版本号自增的buildType，默认是全部
+    buildNumberTypeMatcher = ['release', 'beta']
+}
+
 android {
     //编译SDK的版本
     compileSdkVersion 22
@@ -49,13 +57,7 @@ android {
     lintOptions {
         abortOnError false
     }
-    packer {
-        // 指定是否使用build版本号自增
-        buildNumberAuto = true
-        // 指定使用版本号自增的buildType，默认是全部
-        buildNumberTypeMatcher = ['release', 'beta']
 
-    }
 }
 
 dependencies {
