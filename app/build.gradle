@@ -3,13 +3,6 @@ apply plugin: 'com.android.application'
 // `使用 apply plugin使用packer插件`
 apply plugin: 'packer'
 
-packer {
-    // 指定是否使用build版本号自增
-    buildNumberAuto = true
-    // 指定使用版本号自增的buildType，默认是全部
-    buildNumberTypeMatcher = ['devrelease']
-
-}
 android {
     //编译SDK的版本
     compileSdkVersion 22
