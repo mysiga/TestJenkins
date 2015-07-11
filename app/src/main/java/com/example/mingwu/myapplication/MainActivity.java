@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.mingwu.myapplication.presenter.LoginPresenter;
@@ -19,6 +20,7 @@ public class MainActivity extends Activity implements ILoginView {
     private EditText mEtUsername, mEtPassword;
     private Button mBtnLogin, mBtnClear;
     private ProgressBar mPbLoading;
+    private TextView tv_versionName,tv_versionCode;
 
     private LoginPresenter mUserLoginPresenter = new LoginPresenter(this);
 
@@ -38,6 +40,9 @@ public class MainActivity extends Activity implements ILoginView {
         mBtnClear = (Button) findViewById(R.id.id_btn_clear);
         mBtnLogin = (Button) findViewById(R.id.id_btn_login);
 
+        tv_versionName = (TextView) findViewById(R.id.tv_versionName);
+        tv_versionCode = (TextView) findViewById(R.id.tv_versionCode);
+
         mPbLoading = (ProgressBar) findViewById(R.id.id_pb_loading);
 
         mBtnLogin.setOnClickListener(new View.OnClickListener() {
@@ -53,6 +58,7 @@ public class MainActivity extends Activity implements ILoginView {
                 mUserLoginPresenter.regeter();
             }
         });
+        mUserLoginPresenter.initVersionMessage();
     }
 
 
@@ -102,5 +108,15 @@ public class MainActivity extends Activity implements ILoginView {
     @Override
     public Context getContext() {
         return this;
+    }
+
+    @Override
+    public void setVersionName(String versionName) {
+        tv_versionName.setText(versionName);
+    }
+
+    @Override
+    public void setVersionCode(String versionCode) {
+        tv_versionCode.setText(versionCode);
     }
 }

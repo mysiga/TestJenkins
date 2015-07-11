@@ -18,5 +18,7 @@ public interface ILoginView {
 
     void hideLoading();
     public Context getContext();
+    public void setVersionName(String versionName);
+    public void setVersionCode(String versionCode);
 
 }

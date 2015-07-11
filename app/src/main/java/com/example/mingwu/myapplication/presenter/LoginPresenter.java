@@ -1,6 +1,8 @@
 package com.example.mingwu.myapplication.presenter;
 
 import android.content.Context;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 
 import com.example.mingwu.myapplication.biz.ILoginBiz;
 import com.example.mingwu.myapplication.biz.ILoginListener;
@@ -18,7 +20,24 @@ public class LoginPresenter {
         this.loginView = loginView;
         loginBiz=new LoginBiz();
     }
+    public  void initVersionMessage(){
 
+        try {
+            Context context=loginView.getContext();
+            PackageManager packageManager = context.getPackageManager();
+            // getPackageName()是你当前类的包名，0代表是获取版本信息
+            PackageInfo packInfo = null;
+            packInfo = packageManager.getPackageInfo(context.getPackageName(),0);
+            String versionName = packInfo.versionName;
+            int versionCode = packInfo.versionCode;
+            loginView.setVersionName("版本号:"+versionName);
+            loginView.setVersionCode("内部号:" + String.valueOf(versionCode));
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+
+
+    }
     public void login() {
         loginView.showLoading();
         final Context context=loginView.getContext();
