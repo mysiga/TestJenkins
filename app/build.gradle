@@ -14,8 +14,8 @@ android {
         applicationId "com.mysiga.myapplication"
         minSdkVersion 15
         targetSdkVersion 22
-        versionCode 2
-        versionName "1.1"
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
     }
     //签名
     signingConfigs {
@@ -57,6 +57,6 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:22.2.0'
 }
-task AppVersionName {
-    println android.defaultConfig.versionName
-}
+//task AppVersionName {
+//    println android.defaultConfig.versionName
+//}
