@@ -64,6 +64,10 @@ public class MainActivity extends Activity implements ILoginView {
 
     @Override
     public String getUserName() {
+
+
+
+
         return mEtUsername.getText().toString();
     }
 
