@@ -69,6 +69,7 @@ public class MainActivity extends Activity implements ILoginView {
 
     @Override
     public String getPassWord() {
+        
         return mEtPassword.getText().toString();
 
     }
